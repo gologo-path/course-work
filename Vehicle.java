@@ -1,6 +1,6 @@
 
 public interface Vehicle {
-    public void setType(String type); //Различие между авто и мотоциклом
+    public void setType(String type); //ГђГ Г§Г«ГЁГ·ГЁГҐ Г¬ГҐГ¦Г¤Гі Г ГўГІГ® ГЁ Г¬Г®ГІГ®Г¶ГЁГЄГ«Г®Г¬
     public String getType();
     
     public void setName(String name);
@@ -9,7 +9,7 @@ public interface Vehicle {
     public void setYear(int year);
     public int getYear();
     
-    public void setModel(String model);
+    public void setModel(String model); // Р±СѓРґРµС‚ РјРµРЅСЏС‚СЊСЃСЏ
     public String getModel();
     
     public void setManufacturer(String manufacturer);

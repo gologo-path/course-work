@@ -1,6 +1,6 @@
 
 public interface Vehicle {
-    public void setType(String type); //Ðàçëè÷èå ìåæäó àâòî è ìîòîöèêëîì
+    public void setType(String type); //Различие между авто и мото
     public String getType();
     
     public void setName(String name);

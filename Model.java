@@ -8,7 +8,11 @@ public class Model {
         this.num = num;
     }
     
-    public String getName(){return name;}
-    public int getNum(){return num;}
+    public String getName(){
+    	return name;
+    }
+    public int getNum(){
+    	return num;
+    }
     
 }

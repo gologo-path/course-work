@@ -47,10 +47,9 @@ public abstract class Vehicle {
     public String getPetrolType() {
     	return petrolType;
     }
-    /*
     public void setTankCapacity(double capacity) {
     	this.capacity=capacity;
-    }*/
+    }
     public double getTankCapacity() {
     	return capacity;
     }    

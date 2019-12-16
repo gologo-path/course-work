@@ -69,7 +69,7 @@ public class CSV {
                 
                 System.out.println("Auto");
                 
-                v = new Auto();
+                v = new Avto();
                 comma_counter =1;
             }
             

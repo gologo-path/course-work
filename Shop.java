@@ -19,6 +19,7 @@ public class Shop {
     Shop(String name, String adr){
     	this.name=name;
     	this.adr=adr;
+    	reg = new ArrayList<>();
     	try {
     		download();
 		} catch (IOException e) {

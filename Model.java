@@ -13,6 +13,8 @@ public class Model {
     }
     public int getNum(){
     	return num;
-    }
+    }    
+    
+    //syso
     
 }

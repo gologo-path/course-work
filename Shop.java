@@ -37,11 +37,14 @@ public class Shop {
     
     public void download() throws IOException{
     	//ф-я подкачки из файла, вызов автоматически при создании объекта
+        CSV f = new CSV();
+        reg = f.get_list();
     }
     public void upload() throws IOException{
     	//ф-я загрузки в файл, перед завершением программы нужно дополнительно вызвать извне.
+        CSV f = new CSV();
+        f.write(reg);
     }
-    
     
     public void add(Vehicle v) { //добавление
     	reg.add(v);

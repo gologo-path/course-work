@@ -1,5 +1,5 @@
 
-public class Shop {
+public class Shop {//
     private String name;
     private String adr;
     private Vehicle reg[];

@@ -1,26 +1,60 @@
 
-public interface Vehicle {
-    public void setType(String type); //Различие между авто и мото
-    public String getType();
-    
-    public void setName(String name);
-    public String getName();
-    
-    public void setYear(int year);
-    public int getYear();
-    
-    public void setModel(String model); // будет меняться
-    public String getModel();
-    
-    public void setManufacturer(String manufacturer);
-    public String getManufacturer();
-    
-    public void setPetrolType(String petrolType);
-    public String getPetrolType();
-    
-    public void setTankCapacity(double capacity);
-    public double getTankCapacity();
-    
-    public void setCost(double cost);
-    public double getCost();
+public abstract class Vehicle {
+	protected String type;
+	protected String name;
+	protected int year;
+	protected Model model;
+	protected String manufacturer;
+	protected String petrolType;
+	protected double capacity;
+	protected double cost;
+	
+	public void setType(String type) {
+    	this.type=type;
+    }
+    public String getType() {
+    	return type;
+    }    
+    public void setName(String name) {
+    	this.name=name;
+    }
+    public String getName() {
+    	return name;
+    }    
+    public void setYear(int year) {
+    	this.year=year;
+    }
+    public int getYear() {
+    	return year;
+    }    
+    public void setModel(Model model) {
+    	this.model=model;
+    }
+    public Model getModel() {
+    	return model;
+    }    
+    public void setManufacturer(String manufacturer) {
+    	this.manufacturer=manufacturer;
+    }
+    public String getManufacturer() {
+    	return manufacturer;
+    }   
+    public void setPetrolType(String petrolType) {
+    	this.petrolType=petrolType;
+    }
+    public String getPetrolType() {
+    	return petrolType;
+    }    
+    public void setTankCapacity(double capacity) {
+    	this.capacity=capacity;
+    }
+    public double getTankCapacity() {
+    	return capacity;
+    }    
+    public void setCost(double cost) {
+    	this.cost=cost;
+    }
+    public double getCost() {
+    	return cost;
+    }
 }

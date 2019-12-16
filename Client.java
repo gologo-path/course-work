@@ -10,7 +10,7 @@ public class Client {
         this.year = year;
         this.ID = ID;
     }
-    
+    //
     public String getName(){return name;}
     public String getSurname(){return surname;}
     public int getYear(){return year;}

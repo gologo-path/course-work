@@ -2,8 +2,8 @@
 public abstract class Vehicle {
 	protected Type type;
 	protected String name;
-	protected int year;
 	protected Model model;
+	protected int year;
 	protected String manufacturer;
 	protected PetrolType petrolType;
 	protected double capacity;
@@ -21,20 +21,19 @@ public abstract class Vehicle {
     }
     public String getName() {
     	return name;
-    }    
-    public void setYear(int year) {
-    	this.year=year;
-    }
-    public int getYear() {
-    	return year;
-    }    
+    }       
     public void setModel(Model model) {
     	this.model=model;
     }
     public Model getModel() {
     	return model;
     }
-    
+    public void setYear(int year) {
+    	this.year=year;
+    }
+    public int getYear() {
+    	return year;
+    } 
     public void setManufacturer(String manufacturer) {
     	this.manufacturer=manufacturer;
     }

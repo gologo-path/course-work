@@ -5,6 +5,7 @@ public class Moto extends Vehicle{
 		type=Type.MOTO;
 		name="Some_bike";
 		year=2000;
+		model=new Model();
 		model.name="any_model";
 		model.num=3;
 		//manufacturer="Cars&Motos";
@@ -16,6 +17,7 @@ public class Moto extends Vehicle{
 		type=Type.MOTO;
 		this.name=name;
 		this.year=year;
+		model=new Model();
 		this.model.name=model.name;
 		this.model.num=model.num;
 		//this.manufacturer=manufacturer;

@@ -96,6 +96,7 @@ public class Main{
 				break;
 			case 2:
 				v=new Moto();
+				break;
 			default:
 				System.out.println("---Uncorrect input---");
 				continue;

@@ -44,21 +44,25 @@ public class CSV {
                 break;
                 
                 case 3:
+                    v.setManufacturer(tmp);
+                break;
+                    
+                case 4:
                     v.setYear(Integer.parseInt(tmp));
                     comma_counter+=1;
                 break;
                 
-                case 4:
+                case 5:
                     v.setPetrolType(tmp);
                     comma_counter+=1;
                 break;
                 
-                case 5:
+                case 6:
                     v.setTankCapacity(Double.parseDouble(tmp));
                     comma_counter+=1;
                 break;
                 
-                case 6:
+                case 7:
                     v.setCost(Double.parseDouble(tmp));
                     comma_counter+=1;
                     list.add(v);
@@ -93,7 +97,7 @@ public class CSV {
         FileWriter fout = new FileWriter(file_name);
         for(int i=0;i<ls.size();i+=1){
             Vehicle v = (Vehicle) ls.get(i);
-            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name+v.getModel().num + "," + v.getYear() + "," +  v.getPetrolType()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
+            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name+v.getModel().num + "," + v.getManufacturer() + "," + v.getYear() + "," +  v.getPetrolType()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
             fout.write(tmp);
             
         }

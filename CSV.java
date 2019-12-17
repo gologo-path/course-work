@@ -45,6 +45,7 @@ public class CSV {
                 
                 case 3:
                     v.setManufacturer(tmp);
+                    comma_counter+=1;
                 break;
                     
                 case 4:

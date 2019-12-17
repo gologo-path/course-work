@@ -5,7 +5,7 @@ public abstract class Vehicle {
 	protected int year;
 	protected Model model;
 	protected String manufacturer;
-	protected String petrolType;
+	protected PetrolType petrolType;
 	protected double capacity;
 	protected double cost;
 	
@@ -41,10 +41,10 @@ public abstract class Vehicle {
     public String getManufacturer() {
     	return manufacturer;
     }   
-    public void setPetrolType(String petrolType) {
+    public void setPetrolType(PetrolType petrolType) {
     	this.petrolType=petrolType;
     }
-    public String getPetrolType() {
+    public PetrolType getPetrolType() {
     	return petrolType;
     }
     public void setTankCapacity(double capacity) {

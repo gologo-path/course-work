@@ -17,6 +17,7 @@ public class Avto extends Vehicle{
 		type=Type.AVTO;
 		this.name=name;
 		this.year=year;
+		model=new Model();
 		this.model.name=model.name;
 		this.model.num=model.num;
 		//this.manufacturer=manufacturer;

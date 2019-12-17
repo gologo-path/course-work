@@ -71,18 +71,10 @@ public class Shop {
 		}
     	return null;
     }
-    public Vehicle[] getAvtoRegistry(){
+    public Vehicle[] getPetrolRegistry(PetrolType type){
     	Vehicle[] reg_arr=new Vehicle[reg.size()];
     	for (int i = 0; i < reg_arr.length; i++) {
-    		if(reg.get(i).type==Type.AVTO)
-    			reg_arr[i]=reg.get(i);
-		}
-    	return reg_arr;
-    }
-    public Vehicle[] getMotoRegistry(){
-    	Vehicle[] reg_arr=new Vehicle[reg.size()];
-    	for (int i = 0; i < reg_arr.length; i++) {
-    		if(reg.get(i).type==Type.MOTO)
+    		if(reg.get(i).getPetrolType()==type)
     			reg_arr[i]=reg.get(i);
 		}
     	return reg_arr;

@@ -5,6 +5,7 @@ public class Shop {
     private String name;
     private String adr;
     private ArrayList<Vehicle> reg;
+    private double bank;
     
     Shop(){
     	name="some_shop";
@@ -50,13 +51,25 @@ public class Shop {
     public void delete(Vehicle v) {			//удаление
     	for (int i = 0; i < reg.size(); i++) {
 			if(reg.get(i)==v) {
+
 				for (int j = i; j < reg.size()-1; j++) {	//смещение 
 					reg.set(j, reg.get(j+1));
 				}
 				reg.remove(reg.size()-1);
 				break;
+
 			}
 		}
+    }
+    public Vehicle sellVehicle(Vehicle v) {
+    	for (int i = 0; i < reg.size(); i++) {
+			if(reg.get(i)==v) {
+				bank+=reg.get(i).getCost();
+				return reg.remove(i);
+
+			}
+		}
+    	return null;
     }
     public Vehicle[] getAvtoRegistry(){
     	Vehicle[] reg_arr=new Vehicle[reg.size()];

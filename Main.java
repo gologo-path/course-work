@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main{
@@ -20,7 +21,59 @@ public class Main{
     		ans=s.nextInt();
     		switch (ans) {
 			case 1:
-				
+				shop.add(temp_vehicle(ans, s));
+				break;
+			case 2:
+				shop.delete(temp_vehicle(ans, s));
+				break;
+			case 3:
+				for (Vehicle v : shop.getRegistry()) {
+					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getYear()+" "+v.getModel().name+v.getModel().num+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
+				}
+				break;
+			case 4:
+				PetrolType temp;
+				while (true) {
+					System.out.println("Оберіть тип палива: \n1. Бензин \n2. Дизель \n3. Електрокар \n4. Ядерний");    		
+		    		ans=s.nextInt();
+		    		switch (ans) {
+					case 1:
+						temp=PetrolType.GAS;
+						break;
+					case 2:
+						temp=PetrolType.DIEZEL;
+						break;
+					case 3:
+						temp=PetrolType.ELECTRIC;
+						break;
+					case 4:
+						temp=PetrolType.NUCLEAR;
+						break;
+					default:
+						System.out.println("---Uncorrect input---");
+						continue;
+					}
+		    		break;
+				}
+				for (Vehicle v : shop.getPetrolRegistry(temp)) {
+					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getYear()+" "+v.getModel().name+v.getModel().num+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
+				}
+				break;
+			case 7:
+				try {
+					shop.upload();
+					System.out.println("Дані вигружено до сховища!");
+				} catch (IOException e) {
+					System.out.println("Файл не знайдено!");
+				}
+				break;
+			case 8:
+				try {
+					shop.download();
+					System.out.println("Дані загружено зі сховища!");
+				} catch (IOException e) {
+					System.out.println("Файл не знайдено!");
+				}
 				break;
 			case 9:
 				s.close();
@@ -33,7 +86,7 @@ public class Main{
 		}
     	
     }
-    public static Vehicle choose(int ans, Scanner s) {
+    public static Vehicle temp_vehicle(int ans, Scanner s) {
     	Vehicle v;		
 		while (true) {
 			System.out.println("Оберіть тип транспортного засобу: 1. Автомобіль 2. Мотоцикл");    		
@@ -50,7 +103,42 @@ public class Main{
 			}
     		break;
 		}
-		
+		System.out.print("Введіть назву транспортного засобу: ");    		
+		v.setName(s.next());
+		System.out.print("Введіть рік виробництва транспортного засобу: ");    		
+		v.setYear(s.nextInt());
+		System.out.print("Введіть модель транспортного засобу: ");    		
+		String tmp=s.next();
+		System.out.print("	номер моделі: ");    		
+		v.setModel(new Model(tmp, s.nextInt()));
+		System.out.print("Введіть виробника: ");    		
+		v.setManufacturer((s.next()));
+		while (true) {
+			System.out.println("Оберіть тип палива: \n1. Бензин \n2. Дизель \n3. Електрокар \n4. Ядерний");    		
+    		ans=s.nextInt();
+    		switch (ans) {
+			case 1:
+				v.setPetrolType(PetrolType.GAS);
+				break;
+			case 2:
+				v.setPetrolType(PetrolType.DIEZEL);
+				break;
+			case 3:
+				v.setPetrolType(PetrolType.ELECTRIC);
+				break;
+			case 4:
+				v.setPetrolType(PetrolType.NUCLEAR);
+				break;
+			default:
+				System.out.println("---Uncorrect input---");
+				continue;
+			}
+    		break;
+		}
+		System.out.print("Введіть ємність паливного сховища: ");    		
+		v.setTankCapacity(s.nextDouble());
+		System.out.print("Введіть ціну: ");    		
+		v.setCost(s.nextDouble());
     	return v;
 	} 
 

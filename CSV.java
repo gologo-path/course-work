@@ -93,7 +93,7 @@ public class CSV {
         FileWriter fout = new FileWriter(file_name);
         for(int i=0;i<ls.size();i+=1){
             Vehicle v = (Vehicle) ls.get(i);
-            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name+v.getModel().num + "," + v.getYear() + "," +  v.getPetrolType()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
+            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name+v.getModel().num + "," + v.getYear() + "," +  v.getPetrolType().toString()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
             fout.write(tmp);
             
         }

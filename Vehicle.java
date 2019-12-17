@@ -5,7 +5,7 @@ public abstract class Vehicle {
 	protected int year;
 	protected Model model;
 	//protected String manufacturer;
-	protected String petrolType;
+	protected PetrolType petrolType;
 	protected double capacity;
 	protected double cost;
 	
@@ -42,7 +42,22 @@ public abstract class Vehicle {
     	return manufacturer;
     }*/   
     public void setPetrolType(String petrolType) {
-    	this.petrolType=petrolType;
+    	if(petrolType.equals(PetrolType.PETROL.toString())){
+		this.petrolType = PetrolType.PETROL;
+	}
+	    
+	if(petrolType.equals(PetrolType.DIESEL.toString())){
+		this.petrolType = PetrolType.DIESEL;
+	}
+	    
+	if(petrolType.equals(PetrolType.ELECTRICITY.toString())){
+		this.petrolType = PetrolType.ELECTRICITY;
+	}
+	    
+	if(petrolType.equals(PetrolType.NUCLEAR.toString())){
+		this.petrolType = PetrolType.NUCLEAR;
+	}
+	    
     }
     public String getPetrolType() {
     	return petrolType;

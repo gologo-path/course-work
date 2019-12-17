@@ -1,0 +1,3 @@
+public enum PetrolType {
+	PETROL,DIESEL,ELECTRICITY,NUCLEAR
+}

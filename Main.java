@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String []args){
-    	Vehicle tmp;
     	Shop shop=new Shop("Autoshop", "13 Baker st.");
     	Scanner s=new Scanner(System.in);
     	int ans;
@@ -28,7 +27,7 @@ public class Main{
 				break;
 			case 3:
 				for (Vehicle v : shop.getRegistry()) {
-					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getYear()+" "+v.getModel().name+v.getModel().num+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
+					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getModel().name+v.getModel().num+" "+v.getYear()+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
 				}
 				break;
 			case 4:
@@ -56,7 +55,7 @@ public class Main{
 		    		break;
 				}
 				for (Vehicle v : shop.getPetrolRegistry(temp)) {
-					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getYear()+" "+v.getModel().name+v.getModel().num+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
+					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getModel().name+v.getModel().num+" "+v.getYear()+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
 				}
 				break;
 			case 7:
@@ -105,12 +104,12 @@ public class Main{
 		}
 		System.out.print("¬вед≥ть назву транспортного засобу: ");    		
 		v.setName(s.next());
-		System.out.print("¬вед≥ть р≥к виробництва транспортного засобу: ");    		
-		v.setYear(s.nextInt());
 		System.out.print("¬вед≥ть модель транспортного засобу: ");    		
 		String tmp=s.next();
 		System.out.print("	номер модел≥: ");    		
 		v.setModel(new Model(tmp, s.nextInt()));
+		System.out.print("¬вед≥ть р≥к виробництва транспортного засобу: ");    		
+		v.setYear(s.nextInt());
 		System.out.print("¬вед≥ть виробника: ");    		
 		v.setManufacturer((s.next()));
 		while (true) {

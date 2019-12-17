@@ -60,7 +60,7 @@ public abstract class Vehicle {
 	    
     }
     public String getPetrolType() {
-    	return petrolType;
+    	return petrolType.toString();
     }
     public void setTankCapacity(double capacity) {
     	this.capacity=capacity;

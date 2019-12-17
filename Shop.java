@@ -105,4 +105,7 @@ public class Shop {
 		}
     	return reg_arr;
     }
+    public double getBank() {
+		return bank;
+	}
 }

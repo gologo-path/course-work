@@ -8,11 +8,11 @@ public class Moto extends Vehicle{
 		model.name="any_model";
 		model.num=3;
 		//manufacturer="Cars&Motos";
-		petrolType="oil";		
+		petrolType=PetrolType.GAS;		
 		capacity=1000;
 		cost=20000;
 	}
-	Moto(String name, int year, Model model, String petrolType, double capacity, double cost){
+	Moto(String name, int year, Model model, PetrolType petrolType, double capacity, double cost){
 		type=Type.MOTO;
 		this.name=name;
 		this.year=year;

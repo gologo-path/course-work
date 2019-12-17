@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class CSV {
     String file_name = "database.csv";
-    ArrayList <Vehicle> list = new ArrayList();
+    ArrayList <Vehicle> list = new ArrayList<>();
     
     public void read() throws FileNotFoundException{
         Scanner fin = new Scanner(new File(file_name)); 

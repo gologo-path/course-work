@@ -58,4 +58,19 @@ public abstract class Vehicle {
     public double getCost() {
     	return cost;
     }
+    @Override
+    public boolean equals(Object obj) {
+    	// TODO Auto-generated method stub
+    	if(super.equals(obj)==true) return true;
+    	if(type!=((Vehicle) obj).getType()) return false;
+    	if(!name.equals(((Vehicle) obj).getName())) return false;
+    	if(!model.name.equals(((Vehicle) obj).getModel().name)) return false;
+    	if(model.num!=((Vehicle) obj).getModel().num) return false;
+    	if(year!=((Vehicle) obj).getYear()) return false;
+    	if(!manufacturer.equals(((Vehicle) obj).getManufacturer())) return false;
+    	if(petrolType!=((Vehicle) obj).getPetrolType()) return false;
+    	if(capacity!=((Vehicle) obj).getTankCapacity()) return false;
+    	if(cost!=((Vehicle) obj).getCost()) return false;
+    	else return true;
+    }
 }

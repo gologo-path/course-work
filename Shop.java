@@ -54,12 +54,8 @@ public class Shop {
     }
     public void delete(Vehicle v) {			//удаление
     	for (int i = 0; i < reg.size(); i++) {
-			if(reg.get(i)==v) {
-
-				for (int j = i; j < reg.size()-1; j++) {	//смещение 
-					reg.set(j, reg.get(j+1));
-				}
-				reg.remove(reg.size()-1);
+			if(reg.get(i).equals(v)) {
+				reg.remove(i);
 				break;
 
 			}
@@ -67,7 +63,7 @@ public class Shop {
     }
     public Vehicle sellVehicle(Vehicle v) {
     	for (int i = 0; i < reg.size(); i++) {
-			if(reg.get(i)==v) {
+			if(reg.get(i).equals(v)) {
 				bank+=reg.get(i).getCost();
 				return reg.remove(i);
 
@@ -75,13 +71,13 @@ public class Shop {
 		}
     	return null;
     }
-    public Vehicle[] getPetrolRegistry(PetrolType type){
-    	Vehicle[] reg_arr=new Vehicle[reg.size()];
-    	for (int i = 0; i < reg_arr.length; i++) {
-    		if(reg.get(i).getPetrolType()==type)
-    			reg_arr[i]=reg.get(i);
+    public ArrayList<Vehicle> getPetrolRegistry(PetrolType type){
+    	ArrayList<Vehicle> tmp = new ArrayList<>();
+    	for (Vehicle vehicle : reg) {
+			if(vehicle.getPetrolType()==type)
+				tmp.add(vehicle);
 		}
-    	return reg_arr;
+    	return tmp;
     }
     
     public void setName(String name){
@@ -102,12 +98,12 @@ public class Shop {
 			reg.add(reg_arr[i]);
 		}
     }
-    public Vehicle[] getRegistry(){
-    	Vehicle[] reg_arr=new Vehicle[reg.size()];
-    	for (int i = 0; i < reg_arr.length; i++) {
-			reg_arr[i]=reg.get(i);
+    public ArrayList<Vehicle> getRegistry(){
+    	ArrayList<Vehicle> tmp = new ArrayList<>();
+    	for (Vehicle vehicle : reg) {
+			tmp.add(vehicle);
 		}
-    	return reg_arr;
+    	return tmp;
     }
     public double getBank() {
 		return bank;

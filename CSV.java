@@ -128,9 +128,11 @@ public class CSV {
         fin.useDelimiter(",");
         Vehicle v = null;
         int comma_counter =0;
+        String model_name=null;
         while (fin.hasNext()){
             
             String tmp = fin.next();
+            
             
             System.out.println(tmp);
             
@@ -143,6 +145,8 @@ public class CSV {
                 break;
                 
                 case 2:
+                	model_name=tmp;
+                	/*
                     char[] s = tmp.toCharArray();
                     int letters = 0;
                     while(s[letters]<='0' && s[letters]>='9'){letters +=1;}
@@ -150,21 +154,24 @@ public class CSV {
                     int n = 0;
                     for(int i=0;i<letters;i+=1){ str+=s[i]; }
                     for(int i=letters;i<tmp.length();i+=1){ n+=s[i]-'0'; }
-                    v.setModel(new Model(str,n));
+                    v.setModel(new Model(str,n));*/
                     comma_counter+=1;
                 break;
-                
-                case 3:
+                case 3: 
+                	v.setModel(new Model(model_name, Integer.parseInt(tmp)));
+                	comma_counter+=1;
+                	break;
+                case 4:
                     v.setManufacturer(tmp);
                     comma_counter+=1;
                 break;
                     
-                case 4:
+                case 5:
                     v.setYear(Integer.parseInt(tmp));
                     comma_counter+=1;
                 break;
                 
-                case 5:
+                case 6:
                 	switch (tmp) {
 					case "GAS":
 						v.setPetrolType(PetrolType.GAS);
@@ -182,12 +189,12 @@ public class CSV {
                     comma_counter+=1;
                 break;
                 
-                case 6:
+                case 7:
                     v.setTankCapacity(Double.parseDouble(tmp));
                     comma_counter+=1;
                 break;
                 
-                case 7:
+                case 8:
                     v.setCost(Double.parseDouble(tmp));
                     comma_counter=0;
                     list.add(v);
@@ -222,7 +229,7 @@ public class CSV {
         FileWriter fout = new FileWriter(file_name);
         for(int i=0;i<ls.size();i+=1){
             Vehicle v = (Vehicle) ls.get(i);
-            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name+v.getModel().num + "," + v.getManufacturer() + "," + v.getYear() + "," +  v.getPetrolType().toString()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
+            String tmp = v.getType().toString() + "," + v.getName()+ "," + v.getModel().name + "," +v.getModel().num + "," + v.getManufacturer() + "," + v.getYear() + "," +  v.getPetrolType().toString()+ "," + v.getTankCapacity()+ "," + v.getCost()+",\n";
             fout.write(tmp);
             
         }

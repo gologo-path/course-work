@@ -32,8 +32,9 @@ public class Main{
 				shop.delete(temp_vehicle());
 				break;
 			case 3:
+				
 				for (Vehicle v : shop.getRegistry()) {
-					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getModel().name+v.getModel().num+" "+v.getYear()+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
+					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getModel().name+"-"+v.getModel().num+" "+v.getYear()+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
 				}
 				break;
 			case 4:

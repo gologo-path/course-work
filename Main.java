@@ -1,11 +1,17 @@
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main{
     public static void main(String []args){
     	Shop shop=new Shop("Autoshop", "13 Baker st.");
     	Scanner s=new Scanner(System.in);
-    	int ans;
+    	Map<Client, Vehicle> Sells = new HashMap<>();
+    	int ans=0;
+//    	Avto a = new Avto();
+//    	Avto b = new Avto();
+//    	System.out.println(a.equals(b));
     	
     	while (true) {
     		System.out.println("1. Додати транспортний засіб до реєстру");
@@ -20,10 +26,10 @@ public class Main{
     		ans=s.nextInt();
     		switch (ans) {
 			case 1:
-				shop.add(temp_vehicle(ans, s));
+				shop.add(temp_vehicle());
 				break;
 			case 2:
-				shop.delete(temp_vehicle(ans, s));
+				shop.delete(temp_vehicle());
 				break;
 			case 3:
 				for (Vehicle v : shop.getRegistry()) {
@@ -58,6 +64,33 @@ public class Main{
 					System.out.println(v.getType().name()+" "+v.getName()+" "+v.getModel().name+v.getModel().num+" "+v.getYear()+" "+v.getManufacturer()+" "+v.getPetrolType().name()+" "+v.getTankCapacity()+" "+v.getCost());
 				}
 				break;
+			case 5:
+				Client client = new Client();
+				System.out.print("Введіть дані покупця: \nІм'я:");
+				client.setName(s.next());
+				System.out.print("Прізвище: ");
+				client.setSurname(s.next());
+				System.out.println("Рік народження: ");
+				client.setYear(s.nextInt());
+				System.out.println("Ідентифікаційний код: ");
+				client.setID(s.nextLong());
+				System.out.println("Опишіть транспортний засіб, який шукає покупець: ");
+				Vehicle purchase = shop.sellVehicle(temp_vehicle());
+				
+				if(purchase!=null) {
+					Sells.put(client, purchase);
+					System.out.println("Продаж відбувся!");
+				}
+				else {
+					System.out.println("На жаль, транспортного засобу, який шукає покупець, не знайдно в реєстрі");
+				}
+				break;
+			case 6: 
+				for (Client c : Sells.keySet()) {
+					System.out.println(c.getName()+": "+Sells.get(c).getName()+" "+Sells.get(c).getCost());
+				}
+				System.out.println("Прибуток за день: "+shop.getBank()); 
+				break;
 			case 7:
 				try {
 					shop.upload();
@@ -75,6 +108,12 @@ public class Main{
 				}
 				break;
 			case 9:
+				try {
+					shop.upload();
+					System.out.println("Дані вигружено до сховища!");
+				} catch (IOException e) {
+					System.out.println("Файл не знайдено!");
+				}
 				s.close();
 				System.out.println("---end---");
 				return;
@@ -85,9 +124,14 @@ public class Main{
 		}
     	
     }
-    public static Vehicle temp_vehicle(int ans, Scanner s) {
+  //функция выбора абстракции. тоесть в ней мы "собираем" машину, с которой хотим работать
+    //будь то удаление, добавление, поиск. Абстракцию формируем тут
+    public static Vehicle temp_vehicle() { 		
+    	int ans; 
+    	Scanner s=new Scanner(System.in);
     	Vehicle v;		
-		while (true) {
+		
+    	while (true) {
 			System.out.println("Оберіть тип транспортного засобу: 1. Автомобіль 2. Мотоцикл");    		
     		ans=s.nextInt();
     		switch (ans) {
@@ -139,6 +183,7 @@ public class Main{
 		v.setTankCapacity(s.nextDouble());
 		System.out.print("Введіть ціну: ");    		
 		v.setCost(s.nextDouble());
+		//s.close();
     	return v;
 	} 
 

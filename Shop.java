@@ -5,7 +5,6 @@ public class Shop {
     private String name;
     private String adr;
     private ArrayList<Vehicle> reg;
-    private double bank=0;
     
     Shop(){
     	name="some_shop";
@@ -53,16 +52,10 @@ public class Shop {
     public void delete(Vehicle v) {			//удаление
     	for (int i = 0; i < reg.size(); i++) {
 			if(reg.get(i)==v) {
-				reg.remove(i);
-				break;
-			}
-		}
-    }
-    public Vehicle sellVehicle(Vehicle v) {
-    	for (int i = 0; i < reg.size(); i++) {
-			if(reg.get(i)==v) {
-				bank+=reg.get(i).getCost();
-				reg.remove(i);
+				for (int j = i; j < reg.size()-1; j++) {	//смещение 
+					reg.set(j, reg.get(j+1));
+				}
+				reg.remove(reg.size()-1);
 				break;
 			}
 		}
@@ -108,8 +101,5 @@ public class Shop {
 			reg_arr[i]=reg.get(i);
 		}
     	return reg_arr;
-    }
-    public double getBank() {
-    	return bank;
     }
 }

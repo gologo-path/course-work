@@ -87,8 +87,7 @@ public class CSV {
     
     public ArrayList get_list() throws FileNotFoundException{
         read();
-        return list;
-    }
+        return list;}
     
     public void write(ArrayList ls) throws IOException{
         FileWriter fout = new FileWriter(file_name);

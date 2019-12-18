@@ -2,7 +2,7 @@ public class Client {
     private String name;
     private String surname;
     private int year;
-    private int ID;
+    private long ID;
     
     Client(){
     	name = "somebody";
@@ -25,12 +25,12 @@ public class Client {
     public void setYear(int year) {
 		this.year = year;
 	}
-    public void setID(int iD) {
+    public void setID(long iD) {
 		ID = iD;
 	}
     public String getName(){return name;}
     public String getSurname(){return surname;}
     public int getYear(){return year;}
-    public int getID(){return ID;}
+    public long getID(){return ID;}
     
 }
